@@ -31,6 +31,7 @@ export class AppComponent {
       },
       error: err => {
         console.log(err);
+        this.storageService.clean();
       }
     });
 

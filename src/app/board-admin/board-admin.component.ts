@@ -11,10 +11,11 @@ export class BoardAdminComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAdminBoard().subscribe({
       next: data => {
-        this.content = data;
+
+      this.content = data.text;
       },
       error: err => {console.log(err)
-        if (err.error) {
+      if (err.error) {
           this.content = JSON.parse(err.error).message;
         } else {
           this.content = "Error with status: " + err.status;

@@ -6,12 +6,14 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
   content?: string;
   constructor(private userService: UserService) { }
+
   ngOnInit(): void {
     this.userService.getPublicContent().subscribe({
       next: data => {
-        this.content = data;
+        this.content = data.text;
       },
       error: err => {console.log(err)
         if (err.error) {
