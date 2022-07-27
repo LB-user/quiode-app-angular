@@ -1,0 +1,86 @@
+body {
+  width: 100%;
+  font-family: $primary-font-family;
+  font-size: 2.4em;
+  line-height: 1.5;
+  color: $color-white;
+  font-weight: bold;
+  background-color: $color-dark-purple;
+  list-style: none;
+}
+a {
+  color: $color-white;
+}
+.app{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.landing-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.div-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: 5%;
+  left: 0%;
+}
+
+.div-content {
+  margin: 2rem;
+  padding: 7rem;
+  border: 1px solid #FF00D6;
+  filter: drop-shadow(0px 0px 4px #FF4D00);
+}
+
+.route-content {
+  width: 100%;
+}
+
+form{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2rem;
+  width: 100%;
+}
+
+label {
+font-family: 'Jura';
+font-style: normal;
+text-align: center;
+letter-spacing: -0.333333px;
+
+color: #FFFFFF;
+}
+
+input,
+button {
+  background: #4E4059;
+  border: 1px solid #FF4D00;
+  box-shadow: 0px 0px 4px #FF00D6;
+  border-radius: 4px;
+}
+
+.form-button p {
+  text-align: center;
+  letter-spacing: -0.333333px;
+  line-height: 2.5rem;
+  font-weight: normal;
+  font-size: 1.5rem;
+
+  color: #FFFFFF;
+}

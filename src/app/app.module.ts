@@ -12,6 +12,9 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { LandingComponent } from './landing/landing.component';
+import { ResetComponent } from './reset/reset.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,10 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    LandingComponent,
+    ResetComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,65 @@
+<div id="reset-page">
+  <div>
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+    <div>
+      <label for="password">
+        Mot de Passe
+      </label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="form.password"
+        required
+        minlength="6"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+      />
+      <div *ngIf="password.errors && f.submitted">
+        <div *ngIf="password.errors['required']">
+          Mot de Passe requis
+        </div>
+        <div *ngIf="password.errors['minlength']">
+          Le mot de passe doit avoir au moins 6 caractères
+        </div>
+      </div>
+    </div>
+    <div>
+      <label for="confirmPassword">
+        Confirmation du mot de passe
+      </label>
+      <input
+        type="password"
+        name="confirmPassword"
+        [(ngModel)]="form.confirmPassword"
+        required
+        minlength="6"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+      />
+      <div *ngIf="password.errors && f.submitted">
+        <div *ngIf="password.errors['required']">Mot de Passe requis</div>
+        <div *ngIf="password.errors['mustMatch']">Password and confirm not match</div>            Le mot de passe doit avoir au moins 6 caractères
+      </div>
+    </div>
+      <div>
+        <button class="form-button">
+          <p>Modifier le mot de passe</p>
+        </button>
+      </div>
+      <div>
+        <div *ngIf="f.submitted && isFormFailed" role="alert">
+          La connexion a échoué :<br />{{ errorMessage }}
+        </div>
+      </div>
+    </form>
+    <div *ngIf="isSuccessful">
+      {{ successMessage }}
+    </div>
+  </div>
+</div>

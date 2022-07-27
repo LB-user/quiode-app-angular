@@ -1,38 +1,76 @@
 <div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Quiode</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div class="page-type-1" *ngIf="!isLoggedIn">
+    <div id="group-6">
+      <div id="ellipse-14">
+        <div class="div-title">
+          <h1>Connexion</h1>
+        </div>
+        <div id="rec-30" class="rect"></div>
+        <div id="rec-31" class="rect"></div>
+        <div id="rec-32" class="rect"></div>
+        <div id="rec-33" class="rect"></div>
+        <div id="rec-34" class="rect"></div>
+        <div id="rec-35" class="rect"></div>
+        <div id="rec-36" class="rect"></div>
+      </div>
+      <svg class="mountain" width="100%" viewBox="0 0 390 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 47L33.9528 39.5L57.7526 16L83.5778 47L108.644 50.75L143.837 23.5L175.232 32.5L191.436 11L205.615 32.5L213.21 58L218.274 71.5L256.759 54.5L261.316 58L285.116 62.5L304.358 47L319.55 27.5L332.209 16L347.401 11L351.958 0H362.592C364.449 2 368.466 7 369.681 11C371.2 16 378.29 35.5 380.315 39.5C381.935 42.7 388.08 56.1667 390.949 62.5L395 76H143.837H0V47Z" fill="#726161"/>
+        <path d="M256.5 54.5L257.204 56.7675L244.036 75.8593L218.187 75.5383L219.125 71.1689L233.963 57.185L235.5 64L256.5 54.5Z" fill="#4B3838"/>
+        <path d="M191.5 11L174 47.5L157.842 76.2287L148.378 76.131L141.91 76.0641L159.627 57.6648L175 32L191.5 11Z" fill="#4B3838"/>
+        <path d="M57.5 16.5L30.6017 60.7448L21.5 75.5L16.5 75.5L8.00001 75.5L15.5 62.5001L24.5 50.0001L38 35.5001L57.5 16.5Z" fill="url(#paint0_linear_86_694)"/>
+        <path d="M128.5 35.5L123.5 47.0001L123.5 52.5L109.5 50.7806L109 50.7806L108.5 50.7806L116.886 44.6379L128.5 35.5Z" fill="#4B3838"/>
+        <path d="M124 52.5L134 52.5L147 70.5L145 73L144 73.5L143.207 74.5L132 55.5L124 52.5Z" fill="#6B5959"/>
+        <path d="M83.5 47L88 47.5L110 76L108.918 76L107 76L104 76L88.5286 53.7695L83.5 47Z" fill="#6B5959"/>
+        <path d="M369 28L363 1L369 9L379 37.5L389.5 60.5V77.5L369 28Z" fill="#2E2828"/>
+        <path d="M331.352 15.9702L333.892 75.8128L345 75.8128L331.352 15.9702Z" fill="#403131"/>
+        <path d="M350 5.47059L364.784 77H376L352 1L350 5.47059Z" fill="#403131"/>
+        <defs>
+        <linearGradient id="paint0_linear_86_694" x1="50.419" y1="13.1727" x2="21.2119" y2="75.3303" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#4B3838"/>
+        <stop offset="1" stop-color="#4B3838" stop-opacity="0"/>
+        </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="div-content">
+      <ul class="landing-links" *ngIf="!isLoggedIn">
+        <li>
+          <a href="/register" routerLink="register">S'inscrire</a>
+        </li>
+        <li>
+          <a href="/login" routerLink="login">Connexion</a>
+        </li>
+      </ul>
+      <div class="route-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
+  <nav *ngIf="isLoggedIn" class="page-type-2">
+    <a href="#">Quiode</a>
+    <ul routerLinkActive="active" *ngIf="isLoggedIn" routerLink="user">
+      <li class="nav-item">
+        <a href="/home" routerLink="home">Home </a>
+      </li>
+      <li *ngIf="showAdminBoard">
+        <a href="/admin" routerLink="admin">Admin Board</a>
+      </li>
+      <li *ngIf="showModeratorBoard">
+        <a href="/mod" routerLink="mod">Moderator Board</a>
+      </li>
+      <li>
+        <a href="/user" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li>
+    </ul>
+    <div>
+      <ul>
+        <li>
+          <a href="/profile" routerLink="profile">{{ username }}</a>
+        </li>
+        <li>
+          <a (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </div>
